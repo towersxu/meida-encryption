@@ -7,8 +7,8 @@ export function getFileMd5(file: File, cb: Function) {
   let spark = new SparkMD5.ArrayBuffer()
   let fileReader = new FileReader()
 
-  fileReader.onload = function (e) {
-    spark.append(e.target.result)
+  fileReader.onload = function (ev) {
+    spark.append(fileReader.result)
     currentChunk++
 
     if (currentChunk < chunks) {
