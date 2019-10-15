@@ -4,19 +4,33 @@
     "allowSyntheticDefaultImports": true,
     "baseUrl": ".",
     "jsx": "preserve",
-    "lib": ["dom", "es2017"],
-    "module": "commonjs",
+    "lib": [
+      "dom",
+      "es2017"
+    ],
+    "module": "esnext",
     "moduleResolution": "node",
     "noEmit": true,
     "noUnusedLocals": true,
     "noImplicitAny": false,
-    // "noUnusedParameters": true,
     "preserveConstEnums": true,
     "pretty": true,
     "removeComments": false,
     "skipLibCheck": true,
     "sourceMap": true,
     "strict": true,
-    "target": "es6"
-  }
+    "target": "es6",
+    "forceConsistentCasingInFileNames": true,
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true
+  },
+  "exclude": [
+    "node_modules"
+  ],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx"
+  ]
 }

@@ -1,35 +1,3 @@
-import SparkMD5 from 'spark-md5'
-
-export function getFileMd5(file: File, cb: Function) {
-  let chunkSize = 1024 * 1024 * 2
-  let chunks = Math.ceil(file.size / chunkSize)
-  let currentChunk = 0
-  let spark = new SparkMD5.ArrayBuffer()
-  let fileReader = new FileReader()
-
-  fileReader.onload = function (ev) {
-    spark.append(fileReader.result)
-    currentChunk++
-
-    if (currentChunk < chunks) {
-      loadNext()
-    } else {
-      cb(spark.end())
-    }
-  }
-
-  fileReader.onerror = function () { }
-
-  function loadNext() {
-    let start = currentChunk * chunkSize
-    let end = ((start + chunkSize) >= file.size) ? file.size : start + chunkSize
-
-    fileReader.readAsArrayBuffer(blobSlice(file, start, end))
-  }
-
-  loadNext()
-}
-
  /**
  * 截取流
  * @param {blob} blob 流对象
