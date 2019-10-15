@@ -1,36 +1,5 @@
-# Next.js + Typescript + Express Server
+# audio encryption
 
-While evaluating [next.js](https://github.com/zeit/next.js) for building apps I wanted a starting point that included an [Express](https://expressjs.com/) server for the API and Typescript as the primary language instead of Javascript.  This project is the boilerplate for that app.
+> 将上传音频，在服务端对音频进行加密，然后在浏览器对其进行解密播放。解密采用WebAssembly，既能增加解密的效率，也能增加音频破解的难度。注意：就算是WebAssembly也是可以被逆向破解的。所以这里的加密也不是完全安全的。如果真的想要加密，可以考虑上传的时候把密码和音频一起上传，在播放的时候手动输入密码。(webrtc是不是也可以这样来进行加密?)，播放直接用Audio api就好。
 
-You can deploy this app either to [Zeit](https://zeit.co/) via the `now` command or to [Heroku](https://www.heroku.com).
-
-*Features*
-
-* next.js
-* Typescript
-* Express API Server
-* Static file serving
-* Mocha Tests
-
-## Running
-*Dev Server*
-```sh
-npm i
-npm run dev
-```
-
-*Production Server*
-```sh
-npm i
-npm run build
-npm run start
-```
-
-## Notes
-* We might need to use this [.babelrc](https://github.com/zeit/next.js/blob/canary/examples/custom-server-typescript/.babelrc) though I swear I read it's been fixed and our current
-* Great [write up](http://artsy.github.io/blog/2017/11/27/Babel-7-and-TypeScript/) on creating babel7/typescript app
-* To fix TS2339:Property 'jsx' does not exist on type  'DetailedHTMLProps<StyleHTMLAttributes<HTMLStyleElement>, HTMLStyleElement>'. [From](https://github.com/zeit/styled-jsx/issues/90) `npm i --save-dev @types/styled-jsx`
-* [SASS Support](https://medium.com/@miiny/setup-a-server-rendered-reactjs-application-with-next-js-typescript-sass-7cd3e7e79706) - Might want to use it vs styled-jsx
-
-
-MIT License
+对于mp3可以不把ID3给加密，这样如果文件仍然以mp3结尾的话，在大多数设备上看起来仍然是mp3，只是普通的播放器无法播放而已。但是这么做不好。
