@@ -4,15 +4,15 @@ var fs = require("fs");
 var path = require('path');
 
 export function encryptionFile () {
-  var e = AES.encrypt('zxzzzz', 'skx');
-  console.log(e.toString())
+  AES.encrypt('zxzzzz', 'skx');
+  // console.log(e.toString())
   return true
 }
 
 export function decryptFile () {
   var str = 'U2FsdGVkX18yOtNbnjkZ60d5PAObUPpdmHcpVKRXqlg=';
   var r = AES.decrypt(str, 'skx');
-  console.log(r.toString(CryptoJS.enc.Utf8))
+  r.toString(CryptoJS.enc.Utf8)
   return true
 }
 
@@ -29,7 +29,7 @@ export function decryptFile () {
 
 export function encryptFile () {
   fs.readFile(path.resolve(__dirname, './demo2.mp3'), function (err, buffer) {
-    console.log(buffer)
+    // console.log(buffer)
     let arr = new Uint8Array(buffer);
     // let str: string[] = [];
 
@@ -42,7 +42,7 @@ export function encryptFile () {
       if (err) {
         console.log(err)
       } else {
-        console.log(3);
+        // console.log(3);
       }
     })
     // console.log(arr)

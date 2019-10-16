@@ -7,6 +7,7 @@
     "dev": "nodemon --inspect server.ts",
     "build": "next build && tsc --project tsconfig.server.json",
     "lint": "eslint --ext .js,.vue src",
+    "publish": "node ci/index.js",
     "postinstall": "npm run build",
     "start": "NODE_ENV=production node .next/production-server/server.js",
     "test": "mocha -r ts-node/register"
@@ -23,6 +24,7 @@
     "@types/node": "^12.7.12",
     "@types/react": "^16.9.6",
     "@types/react-dom": "^16.9.2",
+    "@types/styled-jsx": "^2.2.8",
     "@zeit/next-typescript": "^1.1.1",
     "chai": "^4.2.0",
     "crypto-js": "^3.1.9-1",
@@ -38,9 +40,11 @@
     "typescript": "^3.6.4"
   },
   "devDependencies": {
-    "@types/styled-jsx": "^2.2.8",
+    "@commitlint/cli": "^8.2.0",
+    "archiver": "^3.1.1",
     "husky": "^3.0.9",
     "nodemon": "^1.19.3",
+    "ssh2": "^0.8.5",
     "ts-node": "^8.4.1"
   },
   "husky": {
