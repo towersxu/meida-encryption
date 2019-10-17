@@ -7,7 +7,6 @@ import router from './server/routes/index'
 const dev = process.env.NODE_ENV !== 'production'
 const app = next({ dev })
 const handle = app.getRequestHandler()
-console.log(init)
 init() // todo: 改成异步
 app.prepare()
 .then(() => {
