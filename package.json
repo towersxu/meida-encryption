@@ -37,14 +37,14 @@
     "react-dom": "^16.10.2",
     "react-markdown": "^4.2.2",
     "signale": "^1.4.0",
-    "typescript": "^3.6.4"
+    "typescript": "^3.6.4",
+    "ssh2": "^0.8.5"
   },
   "devDependencies": {
     "@commitlint/cli": "^8.2.0",
     "archiver": "^3.1.1",
     "husky": "^3.0.9",
     "nodemon": "^1.19.3",
-    "ssh2": "^0.8.5",
     "ts-node": "^8.4.1"
   },
   "husky": {
