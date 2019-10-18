@@ -2,7 +2,6 @@ language: node_js
 node_js:
   - '10.16.3'
 script:
-  - npm run build
   - npm prune --production # 删除devDependencies
-  - tar -czvf build.tar.gz *
+  - tar -czvf build.tar.gz .
   - ./ci/index.js
