@@ -2,6 +2,8 @@
 
 echo "begin"
 
+chmod 777 -R ./.
+
 su - taox <<EOF
 
 cd ~/project/audio-encryption

@@ -6,7 +6,7 @@ let conn = new Client()
 
 function ci () {
   conn.on('ready', function () {
-    let buildPath = path.resolve(__dirname, '../build.tar.gz');
+    let buildPath = path.resolve(__dirname, '../build.zip');
     const remotePath = '/home/taox/project/audio-encryption/'
     conn.sftp(function (err, sftp) {
       if (err) {
@@ -22,7 +22,7 @@ function ci () {
           }
           let command = `cd ${remotePath}; rm -rf ./.`;
           conn.exec(command, function (err, stream) {
-            const filename = 'build.tar.gz'
+            const filename = 'build.zip'
             console.log('开始上传文件:', filename)
             sftp.writeFile(remotePath + filename, data, function (err, res) {
               if (err) {
@@ -49,13 +49,22 @@ function ci () {
 }
 
 function unzipFile(path, fileName) {
-  let command = `cd ${path}; tar -xzvf ${fileName}; rm ${fileName}; chmod 777 -R ./.; ./startup.sh;`
+  let command = `cd ${path};  unzip -o -q ${fileName}; ./startup.sh > ./startup.log 2>&1;`
   conn.exec(command, function (err, stream) {
     if (err) {
       console.log(err)
     }
+    stream.on('close', function (code, signal) {
+      console.log('Stream :: close :: code: ' + code + ', signal: ' + signal);
+      conn.end();
+    }).on('data', function (data) {
+      console.log('STDOUT: ' + data);
+    }).stderr.on('data', function (data) {
+      console.log('STDERR: ' + data);
+      conn.end();
+    });
     console.log('解压成功')
-    conn.end()
+    // conn.end()
   })
 }
 ci()
