@@ -1,7 +1,10 @@
 language: node_js
+os: osx
 node_js:
   - '10.16.3'
 script:
-  - npm prune --production # 删除devDependencies
-  - tar -czvf build.tar.gz .
+  - npm run build
+  - rm -rf node_modules
+  - npm install --production
+  - zip -r -q build.zip ./.
   - ./ci/index.js
