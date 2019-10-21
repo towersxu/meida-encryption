@@ -15,6 +15,6 @@ before_install:
 - tar xvf deploy.tar
 deploy:
 - provider: script
-  script: deploy.sh
+  script: bash ./deploy.sh
   on:
     branch: master
