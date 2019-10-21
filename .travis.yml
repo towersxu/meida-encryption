@@ -8,9 +8,8 @@ script:
 - tar -cf build.tar .next node_modules package.json
 before_install:
 - openssl aes-256-cbc -K $encrypted_0e6c454f6502_key -iv $encrypted_0e6c454f6502_iv
-  -in deploy.sh.enc -out deploy.sh -d
-- openssl aes-256-cbc -K $encrypted_0e6c454f6502_key -iv $encrypted_0e6c454f6502_iv
   -in taox.pub.enc -out taox.pub -d
+- tar xvf deploy.tar
 deploy:
 - provider: script
   script: deploy.sh

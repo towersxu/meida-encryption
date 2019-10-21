@@ -8,6 +8,7 @@
     "build": "next build && tsc --project tsconfig.server.json",
     "lint": "eslint --ext .js,.vue src",
     "publish": "node ci/index.js",
+    "tar": "tar cvf deploy.tar deploy.sh taox.pub && travis encrypt-file deploy.tar --com --add",
     "start": "NODE_ENV=production node .next/production-server/server.js",
     "test": "mocha -r ts-node/register"
   },
