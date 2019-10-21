@@ -15,6 +15,7 @@ before_install:
 - tar xvf deploy.tar
 deploy:
 - provider: script
+  skip_cleanup: true
   script: bash ./deploy.sh
   on:
     branch: master
