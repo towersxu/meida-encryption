@@ -8,11 +8,10 @@ addons:
   - 123.207.101.120
 script:
 - npm run build
-- npm prune --production
-- tar -cf build.tar .next node_modules package.json
+- tar -zcf build.tar.gz .next package.json
 cache:
   directories:
-    - node_modules
+  - node_modules
 before_install:
 - openssl aes-256-cbc -K $encrypted_0e6c454f6502_key -iv $encrypted_0e6c454f6502_iv
   -in deploy.tar.enc -out deploy.tar -d
