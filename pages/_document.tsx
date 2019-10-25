@@ -16,6 +16,13 @@ class MyDocument extends Document {
           <Main />
           <NextScript />
         </body>
+        <style jsx>{`
+            body {
+              padding: 0;
+              margin: 0;
+              background: #f6f6f6;
+            }
+        `}</style>
       </Html>
     )
   }

@@ -1,73 +1,53 @@
 import Layout from '../components/MyLayout'
-import Link from 'next/link'
-import fetch from 'isomorphic-unfetch'
+import AudioPlayer from '../components/index/AudioPlayer'
+import FileButton from '../components/index/FileButton'
+import MusicList from '../components/index/MusicList'
+import { withRedux } from '../redux/redux'
 
-const ShowLink = ({ show }) => (
-  <li key={show.id}>
-    <Link as={`/p/${show.id}`} href={`/post?id=${show.id}`}>
-      <a>{show.name}</a>
-    </Link>
-    <style jsx>{`
-      li {
-        list-style: none;
-        margin: 5px 0;
-      }
-
-      a {
-        text-decoration: none;
-        color: blue;
-      }
-
-      a:hover {
-        opacity: 0.6;
-      }
-    `}</style>
-  </li>
-)
+// import fetch from 'isomorphic-unfetch'
 
 const Index = (props) => (
   <Layout>
-    <h1>Batman TV Shows</h1>
-    <ul>
-      {props.shows.map(({show}) => (
-        <ShowLink key={show.id} show={show} />
-      ))}
-    </ul>
+    <div className="container">
+      <div className="left">
+        <FileButton></FileButton>
+        <MusicList></MusicList>
+      </div>
+      <div className="right">
+        <div className="postcard">
+          <AudioPlayer></AudioPlayer>
+        </div>
+      </div>
+    </div>
     <style jsx>{`
-      h1, a {
-        font-family: "Arial";
+      .container {
+        display: flex;
+        width: 100%;
       }
-
-      ul {
-        padding: 0;
+      .left {
+        width: 30vw;
+        height: 100%;
       }
-
-      li {
-        list-style: none;
-        margin: 5px 0;
+      .right {
+        height: 100%;
+        flex-grow: 2;
+        overflow: hidden;
       }
-
-      a {
-        text-decoration: none;
-        color: blue;
+      .postcard {
+        width: 40vw;
+        height: 20vw;
+        // background: #D4D7DD;
+        transform: rotate(1deg);
+        margin: 10vw auto;
       }
-
-      a:hover {
-        opacity: 0.6;
+      .left :global(.button) {
+        position: relative;
+        left: 10vw;
       }
     `}</style>
+    <script src="../static/wasm/encryption.js"></script>
+    <script src="../static/js/jsmediatags.min.js"></script>
   </Layout>
 )
 
-Index.getInitialProps = async function() {
-  const res = await fetch('https://api.tvmaze.com/search/shows?q=batman')
-  const data = await res.json()
-
-  console.log(`Show data fetched. Count: ${data.length}`)
-
-  return {
-    shows: data
-  }
-}
-
-export default Index
+export default withRedux(Index)

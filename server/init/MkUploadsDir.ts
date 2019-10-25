@@ -11,6 +11,6 @@ export default function () {
     fs.mkdirSync(path.resolve(__dirname, '../../uploads'))
     signale.success('创建uploads文件夹成功', 'server/init/MkUploadsDir.ts')
   } catch (e) {
-    signale.debug('创建uploads文件夹失败', e.Error, 'server/init/MkUploadsDir.ts')
+    signale.debug('uploads文件夹已存在', e.Error, 'server/init/MkUploadsDir.ts')
   }
 }

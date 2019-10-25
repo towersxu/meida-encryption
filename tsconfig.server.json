@@ -5,6 +5,11 @@
     "module": "commonjs",
     "outDir": ".next/production-server/"
   },
-  "include": ["**/*.ts"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.less"
+  ],
   "exclude": ["test/**/*.ts"]
 }
