@@ -31,6 +31,7 @@
     "react-redux": "^7.1.1",
     "redux": "^4.0.4",
     "redux-devtools": "^3.5.0",
+    "redux-devtools-extension": "^2.13.8",
     "signale": "^1.4.0",
     "ssh2": "^0.8.5"
   },
@@ -51,7 +52,6 @@
     "husky": "^3.0.9",
     "mocha": "^6.2.1",
     "nodemon": "^1.19.3",
-    "redux-devtools-extension": "^2.13.8",
     "ts-node": "^8.4.1",
     "typescript": "^3.6.4"
   },
