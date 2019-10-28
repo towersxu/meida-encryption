@@ -8,12 +8,10 @@ addons:
   - 123.207.101.120
 script:
 - npm run build
+- npm run untar
 cache:
   directories:
   - node_modules
-before_install:
-- openssl aes-256-cbc -K $encrypted_0e6c454f6502_key -iv $encrypted_0e6c454f6502_iv -in deploy.tar.enc -out deploy.tar -d
-- tar xvf deploy.tar
 deploy:
 - provider: script
   skip_cleanup: true
