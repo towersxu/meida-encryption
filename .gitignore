@@ -7,3 +7,4 @@ uploads/*
 deploy.sh
 taox.pub
 deploy.tar
+build.tar.gz

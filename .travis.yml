@@ -8,7 +8,6 @@ addons:
   - 123.207.101.120
 script:
 - npm run build
-- tar -zcf build.tar.gz .next package.json
 cache:
   directories:
   - node_modules
