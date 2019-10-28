@@ -12,8 +12,7 @@ cache:
   directories:
   - node_modules
 before_install:
-- openssl aes-256-cbc -K $encrypted_0e6c454f6502_key -iv $encrypted_0e6c454f6502_iv
-  -in deploy.tar.enc -out deploy.tar -d
+- openssl aes-256-cbc -K $encrypted_0e6c454f6502_key -iv $encrypted_0e6c454f6502_iv -in deploy.tar.enc -out deploy.tar -d
 - tar xvf deploy.tar
 deploy:
 - provider: script
