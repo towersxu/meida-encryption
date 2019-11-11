@@ -8,10 +8,10 @@ const Header = () => (
       <Link href="/">
         <a>AUDIO ENCRYPTION</a>
       </Link>
-      <Link href="/about">
+      <Link href="/">
         <a>WEBRTC ENCRYPTION</a>
       </Link>
-      <Link href="/upload">
+      <Link href="/">
         <a>ABOUT ME</a>
       </Link>
     </div>
