@@ -11,6 +11,7 @@ class MyDocument extends Document {
       <Html>
         <Head>
           <link rel="shortcut icon" type="image/x-icon" href="/static/favicon.ico" />
+          <script src="/static/js/analysis.js"></script>
         </Head>
         <body>
           <Main />
