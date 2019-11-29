@@ -9,7 +9,6 @@ interface ChangeFileEvent extends ChangeEvent {
 class Upload extends Component {
   onChange(event: ChangeFileEvent) {
     event.preventDefault();
-    console.log(event.target.files);
     let files = event.target.files;
     if (files && files.length > 0) {
       this.upload(files.item(0))
@@ -18,11 +17,10 @@ class Upload extends Component {
   async upload (file) {
     let formdata = new FormData();
     formdata.append('file', file);
-    const res = await fetch('http://localhost:3000/api/upload', {
+    await fetch('http://localhost:3000/api/upload', {
       method: 'POST',
       body: formdata
     });
-    console.log(res);
   }
   render () {
     return (

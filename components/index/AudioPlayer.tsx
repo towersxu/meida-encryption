@@ -45,13 +45,6 @@ function AudioPlayer (props) {
   }
   // methods
   function play (buffer) {
-    // dispatch({
-    //   type: 'PLAY_MUSIC',
-    //   data: {
-    //     idx: playInstance.idx,
-    //     playStatu: 2
-    //   }
-    // })
     let cAudioNode = new CAudioNode();
     setTimeout(() => {
       cAudioNode.start(buffer);

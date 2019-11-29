@@ -15,7 +15,7 @@ function FileButton () {
     if (files && files.length > 0) {
       file = files[0];
       if (!/\.(e)*mp3/.test(file.name)) {
-        alert('格式错误，目前只支持mp3和emp3文件');
+        alert('Only support mp3 and emp3 file');
         return
       }
       setIsShowInput(true);
@@ -53,14 +53,14 @@ function FileButton () {
   return (
     <div>
       <div className="button">
-        上传音频
+        Upload Audio File
         <input type="file" onChange={fileChange} />
       </div>
       {
         isShowMask ? <div className="modal-input">
           {
-            isShowKeyInput ? <input type="text" placeholder="请输入秘钥" onKeyUp={handleEnter} />
-              : <p className="process-item">处理中...</p>
+            isShowKeyInput ? <input type="text" placeholder="please input Secret key" onKeyUp={handleEnter} />
+              : <p className="process-item">Process...</p>
           }
         </div> : ''
       }
@@ -70,7 +70,7 @@ function FileButton () {
           display: block;
           width: 10vw;
           height: 3vw;
-          font-size: 1.5vw;
+          font-size: 1vw;
           text-align: center;
           border: 1px solid #34BD7C;
           line-height: 3vw;

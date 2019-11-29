@@ -42,10 +42,10 @@ function MusicList(props) {
     <div>
       <ul className="music-list">
         <li className="head">
-          <span className="title">标题</span>
-          <span className="singer">歌手</span>
-          <span className="time">大小</span>
-          <span className="download">操作</span>
+          <span className="title">title</span>
+          <span className="singer">artist</span>
+          <span className="time">size</span>
+          <span className="download">download</span>
         </li>
         {musicListItems}
       </ul>
@@ -78,11 +78,11 @@ function MusicList(props) {
             display: inline-block;
           }
           .music-list :global(.time) {
-            width: 20%;
+            width: 15%;
             display: inline-block;
           }
           .music-list :global(.download) {
-            width: 10%;
+            width: 15%;
             text-align: center;
             display: inline-block;
           }
