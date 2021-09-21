@@ -34,7 +34,7 @@
     "redux-devtools": "^3.5.0",
     "redux-devtools-extension": "^2.13.8",
     "signale": "^1.4.0",
-    "ssh2": "^0.8.5"
+    "ssh2": "^1.4.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^8.2.0",
